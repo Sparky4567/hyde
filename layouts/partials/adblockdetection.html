@@ -1,0 +1,31 @@
+<style>
+  .bigSwal {
+    width: 100% !important;
+    height: 100vh !important;
+  }
+</style>
+<script defer src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script defer="defer">
+  setTimeout(function () {
+    if (
+      typeof window.google_unique_id === "undefined" &&
+      String(window.location.pathname) !== "/"
+    ) {
+      Swal.fire({
+        imageUrl:
+          "https://media1.giphy.com/media/G3773sSDJHHy0/giphy.gif?cid=fbac973becr72knsyokx8lprzm84tpbhlh9gzoo2c8mz0k46&rid=giphy.gif&ct=g",
+        icon: "info",
+        title: "Oh no, adblock plugin was detected",
+        text: "You shall not pass ! Unless... You will decide to deactivate it.",
+        customClass: "bigSwal",
+        confirmButtonText: "Deactivated !",
+      }).then((result) => {
+        if (result.value === true) {
+          window.location.reload();
+        }
+      });
+    } else {
+      console.log("no ad blocking found.");
+    }
+  }, 3000);
+</script>

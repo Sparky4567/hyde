@@ -1,0 +1,29 @@
+{{ define "main" -}}
+{{ partial "react.html" . }}
+<div class="post">
+  {{ partial "infobanner.html" . }}
+  <p>Reading time: {{ math.Round (div (countwords .Content) 220.0) }} minutes</p>
+  <p>RSS:</p>
+  <p><a href="http://feeds.feedburner.com/artefaktas/fhgm" target="_blank">http://feeds.feedburner.com/artefaktas/fhgm</a></p>
+  {{ partial "inlineshare.html" . }}
+  {{ partial "displayad.html" . }}
+  <h1>{{ .Title }}</h1>
+  <time datetime={{ .Date.Format "2006-01-02T15:04:05Z0700" }} class="post-date">{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
+  <div>
+  {{ .Content }}
+  {{ partial "licenseelement.html" . }}
+  {{ partial "affielement.html" . }}
+  </div>
+</div>
+
+{{ if .Site.DisqusShortname -}}
+<h2>Comments</h2>
+{{ template "_internal/disqus.html" . }}
+{{- end }}
+{{ partial "sharethis.html" . }}
+{{ partial "facebook.html" . }}
+{{ partial "jq.html" . }}
+{{ partial "lightbox.html" . }}
+{{ partial "adsense.html" . }}
+{{ partial "adblockdetection.html" . }}
+{{- end }}

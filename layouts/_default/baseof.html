@@ -2,6 +2,8 @@
   <body class="{{ .Site.Params.themeColor }} {{if .Site.Params.layoutReverse}}layout-reverse{{end}}">
   {{ partial "sidebar.html" . }}
     <main class="content container">
+      <p><div id="google_translate_element"></div></p>
+    {{ partial "translate" . }} 
     {{ block "main" . -}}{{- end }}
     </main>
 
