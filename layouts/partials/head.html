@@ -20,6 +20,7 @@
   <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/poole.css">
   <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/syntax.css">
   <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/hyde.css">
+  <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/lightbox.css">
   {{ partial "head_fonts.html" . }}
 
   <!-- Icons -->
@@ -30,6 +31,8 @@
   {{ range .AlternativeOutputFormats -}}
     {{ printf `<link href="%s" rel="%s" type="%s" title="%s" />` .Permalink .Rel .MediaType.Type $.Site.Title | safeHTML }}
   {{ end -}}
-
+  {{ partial "opengraph.html" . }}
   {{ partial "hook_head_end.html" . }}
+  <link rel="manifest" href="{{ .Site.BaseURL }}manifest.json" />
+  <script type="module" src="{{ .Site.BaseURL }}pwabuilder-sw/pwabuilder-sw-register.js"></script>
 </head>
