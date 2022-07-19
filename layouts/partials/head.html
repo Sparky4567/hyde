@@ -27,10 +27,12 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
   <link rel="shortcut icon" href="/favicon.png">
 
-  <!-- RSS etc -->
+ <!-- RSS etc -->
   {{ range .AlternativeOutputFormats -}}
-    {{ printf `<link href="%s" rel="%s" type="%s" title="%s" />` .Permalink .Rel .MediaType.Type $.Site.Title | safeHTML }}
+  {{ printf `<link href="%s" rel="%s" type="%s" title="%s" />` .Permalink .Rel .MediaType.Type $.Site.Title | safeHTML }}
   {{ end -}}
   {{ partial "opengraph.html" . }}
   {{ partial "hook_head_end.html" . }}
+  <link rel="manifest" href="{{ .Site.BaseURL }}manifest.json" />
+  <script type="module" src="{{ .Site.BaseURL }}pwabuilder-sw/pwabuilder-sw-register.js"></script>
 </head>
