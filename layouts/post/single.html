@@ -4,7 +4,7 @@
   {{ partial "infobanner.html" . }}
   <p>Reading time: {{ math.Round (div (countwords .Content) 220.0) }} minutes</p>
   <p>RSS:</p>
-  <p><a href="http://feeds.feedburner.com/artefaktas/mjeb" target="_blank">http://feeds.feedburner.com/artefaktas/mjeb</a></p>
+  <p><a href="http://feeds.feedburner.com/artefaktas/fhgm" target="_blank">http://feeds.feedburner.com/artefaktas/fhgm</a></p>
   {{ partial "inlineshare.html" . }}
   {{ partial "displayad.html" . }}
   <h1>{{ .Title }}</h1>
@@ -12,9 +12,9 @@
   <div>
   {{ partial "tags.html" . }}
   {{ .Content }}
-  </div>
   {{ partial "licenseelement.html" . }}
   {{ partial "affielement.html" . }}
+  </div>
 </div>
 
 {{ if .Site.DisqusShortname -}}
