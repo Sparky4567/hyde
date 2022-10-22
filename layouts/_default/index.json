@@ -1,5 +1,5 @@
 [   
-    {{ $list := (where .Site.Pages "Type" "==" "post") }}
+    {{ $list := (where .Site.Pages "Type" "==" "posts") }}
     {{ $len := (len $list)}}
     {{ range $index, $page := $list }}
         {{- if $page.Plain -}}
